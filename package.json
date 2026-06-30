@@ -1,0 +1,40 @@
+{
+  "name": "deckout",
+  "version": "0.1.0",
+  "description": "DeckOut — social card show finder for TCG and sports card collectors",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "node --require ./patch-fs.cjs node_modules/next/dist/bin/next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sammychen10/DeckOut.git"
+  },
+  "keywords": [
+    "tcg",
+    "sports-cards",
+    "events",
+    "nextjs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.108.2",
+    "@tailwindcss/postcss": "^4.3.2",
+    "@types/mapbox-gl": "^3.4.1",
+    "@types/node": "^26.0.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.5.2",
+    "mapbox-gl": "^3.25.0",
+    "next": "^14.2.35",
+    "postcss": "^8.5.16",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^4.3.2",
+    "typescript": "^6.0.3"
+  }
+}
