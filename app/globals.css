@@ -19,6 +19,29 @@
   --font-sans: "Inter", system-ui, sans-serif;
 }
 
+/* ── Drawer animations ────────────────────────────────────────────────────── */
+@keyframes drawer-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes drawer-right {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+.animate-drawer-up {
+  animation: drawer-up 0.28s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+/* On md+ the same element uses the right-slide animation */
+@media (min-width: 768px) {
+  .animate-drawer-up.md\:animate-drawer-right,
+  .animate-drawer-right {
+    animation: drawer-right 0.28s cubic-bezier(0.32, 0.72, 0, 1) both;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
