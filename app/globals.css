@@ -42,6 +42,16 @@
   }
 }
 
+/* ── Feed animations ──────────────────────────────────────────────────────── */
+@keyframes feed-slide-in {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-feed-in {
+  animation: feed-slide-in 0.25s ease-out both;
+}
+
 * {
   box-sizing: border-box;
 }

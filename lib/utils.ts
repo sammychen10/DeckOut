@@ -11,6 +11,38 @@ export function formatShowDate(dateStr: string): string {
   });
 }
 
+/** Human-readable relative timestamp, e.g. "3h ago", "just now". */
+export function relativeTime(dateStr: string): string {
+  const diff = (Date.now() - new Date(dateStr).getTime()) / 1000;
+  if (diff < 60) return "just now";
+  if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+  if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+  if (diff < 604800) return `${Math.floor(diff / 86400)}d ago`;
+  return new Date(dateStr).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
+}
+
+/**
+ * Convert a center point + radius (miles) into a bounding box.
+ * Used to build Supabase lat/lng range queries from a radius slider.
+ */
+export function radiusToBounds(
+  lat: number,
+  lng: number,
+  miles: number
+): { north: number; south: number; east: number; west: number } {
+  const deltaLat = miles / 69.0;
+  const deltaLng = miles / (69.0 * Math.cos((lat * Math.PI) / 180));
+  return {
+    north: lat + deltaLat,
+    south: lat - deltaLat,
+    east: lng + deltaLng,
+    west: lng - deltaLng,
+  };
+}
+
 /** Haversine distance between two lat/lng points in miles. */
 export function haversineDistance(
   lat1: number,
